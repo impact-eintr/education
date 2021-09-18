@@ -79,6 +79,8 @@ func LoginHandler(c *gin.Context) {
 		return
 	}
 
+	log.Println(p)
+
 	// 2. 业务处理
 	userID, userName, userRole, userUnit, aToken, err := service.Login(p)
 	if err != nil {

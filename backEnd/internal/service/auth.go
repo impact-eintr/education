@@ -2,7 +2,6 @@ package service
 
 import (
 	"fmt"
-	"log"
 
 	"github.com/impact-eintr/education/internal/dao/db"
 	"github.com/impact-eintr/education/internal/model"
@@ -47,8 +46,7 @@ func Login(p *model.ParamLogin) (string, string, string, string, string, error) 
 
 	// 数据库验证
 	if err := db.UserLogin(user); err != nil {
-		log.Println(user)
-		return "", "", "", "", "", nil
+		return "", "", "", "", "", err
 	}
 
 	// 验证通过后发放token
